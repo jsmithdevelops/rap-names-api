@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
-const PORT = 8000
 const cors = require("cors")
+const PORT = 8000
 
 app.use(cors())
 const rappers = {
@@ -26,10 +26,10 @@ const rappers = {
 app.get("/", (request, response) => {
   response.sendFile(__dirname + "/index.html")
 })
-app.get("/api/:name", (request, response) => {
-  const rapperName = request.params.name.toLowerCase()
-  if (rappers[rapperName]) {
-    response.json(rappers[rapperName])
+app.get("/api/:rapperName", (request, response) => {
+  const rappersName = request.params.name.toLowerCase()
+  if (rappers[rappersName]) {
+    response.json(rappers[rappersName])
   } else {
     response.json(rappers["unknown"])
   }
